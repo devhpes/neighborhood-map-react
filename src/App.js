@@ -71,6 +71,14 @@ class App extends Component {
     <h5>Pincode: ${myVenue.venue.location.postalCode}</h5>
     <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
+    const marker = new window.google.maps.Marker({
+      map: this.map,
+      position: {lat: myVenue.venue.location.lat, lng: myVenue.venue.location.lng},
+      animation: window.google.maps.Animation.DROP,
+      name: myVenue.venue.name,
+      id: myVenue.venue.id,
+      });
+
   }
 
 
