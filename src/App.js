@@ -14,14 +14,13 @@ class App extends Component {
       markers: [],
       map: [],
     }
-
     //this.initMap = this.initMap.bind(this);
   }
 
   componentDidMount(){
     this.getVenues();
     window.initMap = this.initMap;
-    console.log("Component did mount");
+    //console.log("Component did mount");
   }
   
   //Load the map script
@@ -145,12 +144,12 @@ handlingSearchQuery = (query) => {
   if (query) {
     const match = new RegExp(escapeRegExp(query), 'i');
     filterVenues = this.state.venues.filter(venue => match.test(venue.name));
-    console.log(filterVenues)
     this.setState({ venues: filterVenues });
     hideMarkers = this.state.markers.filter(marker => filterVenues.every(myVenues => myVenues.name !== marker.name));
     this.setState({ hideMarkers });
     this.state.markers.map(marker => {
       hideMarkers.map(hidden =>{
+        //comparing id of both marker and hideMarkers
         if (hidden.id === marker.id ) {
           marker.setVisible(false);
         }
