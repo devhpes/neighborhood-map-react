@@ -167,8 +167,8 @@ handlingSearchQuery = (query) => {
       <div id="sideBar">
       <div className="heading">
       <h2>Food Places</h2>
-      <div id="search">
-      <input type="text" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
+      <div>
+      <input type="text" className="search" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
       </div>
       {this.state.venues  && this.state.venues.map((venue, id) => ( 

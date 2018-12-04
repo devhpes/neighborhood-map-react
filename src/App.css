@@ -33,9 +33,10 @@ body {
   text-align: center;
 }
 
-#search { 
-  padding: 5px;
-  width: 100%;
+.search { 
+  padding: 6px;
+  width: 200px;
+  margin-bottom: 8px;
 }
 
 #listItem {
