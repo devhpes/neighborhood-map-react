@@ -10,9 +10,13 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
+      allVenues: [],
       venues: [],
       markers: [],
       map: [],
+      filterVenues: [],
+      hideMarkers: [],
+      query: '',
     }
     //this.initMap = this.initMap.bind(this);
   }
