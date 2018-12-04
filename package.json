@@ -1,6 +1,7 @@
 {
   "name": "neighborhood-map-react-udacity",
   "version": "0.1.0",
+  "homepage": "https://devhpes.github.io/neighborhood-map-react/",
   "private": true,
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
