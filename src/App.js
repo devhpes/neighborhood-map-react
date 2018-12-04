@@ -186,7 +186,7 @@ closeInfoWindow = () => {
       <main id="App">
       <div id="sideBar">
       <div className="heading">
-      <h2>Food Places</h2>
+      <h2>Food Places In New York City</h2>
       <div>
       <input type="text" className="search" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
