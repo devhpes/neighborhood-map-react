@@ -4,6 +4,13 @@ import './App.css';
 
 class App extends Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      venues : [],
+    }
+  }
+
   componentDidMount(){
     window.initMap = this.initMap;
     console.log("Component did mount");
@@ -21,6 +28,8 @@ class App extends Component {
       zoom: 14,
       mapTypeControl: true
     });
+
+    
   }
 
 
@@ -29,11 +38,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-      <div id="map">
-
-      </div>
-      </div>
+      <main id="App">
+      <div id="map"></div>
+      </main>
     );
   }
 }
