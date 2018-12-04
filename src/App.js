@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
+import axios from 'axios';
+
 
 class App extends Component {
 
@@ -53,6 +55,21 @@ class App extends Component {
       zoom: 14,
       mapTypeControl: true
     });
+
+    //Creating InfoWindow and Latitude and Longitudes Bounds
+    const bounds = new window.google.maps.LatLngBounds();
+    this.InfoWindow = new window.google.maps.InfoWindow();
+
+    //Plotting marker and content on the map
+    this.markers = [];
+    this.venuesInfo = [];
+
+    //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
+    const contentString = `<div><h3>${myVenue.venue.name.toUpperCase()}</h3>
+    <h5>Address: ${myVenue.venue.location.address}</h5>
+    <h5>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
+    <h5>Pincode: ${myVenue.venue.location.postalCode}</h5>
+    <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
   }
 
