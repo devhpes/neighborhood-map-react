@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
+import escapeRegExp from 'escape-string-regexp';
 
 
 class App extends Component {
@@ -134,6 +135,33 @@ class App extends Component {
     });
   }
 
+  // Handling search, Whenever user type in the search box, the list according to the search input will be changed
+//and only the search venue and marker will be shown
+handlingSearchQuery = (query) => {
+  this.setState({ query });
+  let filterVenues;
+  let hideMarkers;
+  this.state.markers.map(marker => marker.setVisible(true));
+  if (query) {
+    const match = new RegExp(escapeRegExp(query), 'i');
+    filterVenues = this.state.venues.filter(venue => match.test(venue.name));
+    console.log(filterVenues)
+    this.setState({ venues: filterVenues });
+    hideMarkers = this.state.markers.filter(marker => filterVenues.every(myVenues => myVenues.name !== marker.name));
+    this.setState({ hideMarkers });
+    this.state.markers.map(marker => {
+      hideMarkers.map(hidden =>{
+        if (hidden.id === marker.id ) {
+          marker.setVisible(false);
+        }
+      })
+    });
+  } else {
+    this.setState({ venues: this.state.allVenues });
+  }
+}
+  
+
   render() {
     return (
       <main id="App">
@@ -141,7 +169,7 @@ class App extends Component {
       <div className="heading">
       <h2>Food Places</h2>
       <div className="search">
-      <input type="text" placeholder="Search.."></input>
+      <input type="text" placeholder="Search.." value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
       </div>
       {this.state.venues  && this.state.venues.map((venue, id) => ( 
