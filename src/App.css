@@ -54,3 +54,11 @@ body {
 #venueList {
   color: rgb(0, 0, 0);
 }
+
+/* Media query for sidebar responsivnes */
+
+@media screen and (max-width: 633px){
+  #sideBar {
+    display: none;
+  }
+}
