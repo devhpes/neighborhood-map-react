@@ -29,14 +29,15 @@ body {
 .heading {
   border: 3px solid rgb(31, 131, 134);
   border-radius: 5px;
-  padding: 10px;
-  margin-bottom: 20px; 
+  padding: 5px;
+  margin-bottom: 10px; 
   text-align: center;
 }
 
 .search {
-  padding: 10px;
+  padding: 5px;
   width: 100%;
+
 }
 
 #listItem {

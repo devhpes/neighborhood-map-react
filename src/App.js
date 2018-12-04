@@ -73,9 +73,9 @@ class App extends Component {
     this.state.venues.map(myVenue => {
     //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
     const contentString = `<div><h3>${myVenue.venue.name.toUpperCase()}</h3>
-                          <h5>Address: ${myVenue.venue.location.address}</h5>
-                          <h5>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
-                          <h5>Pincode: ${myVenue.venue.location.postalCode}</h5>
+                          <h4>Address: ${myVenue.venue.location.address}</h5>
+                          <h4>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
+                          <h4>Pincode: ${myVenue.venue.location.postalCode}</h5>
                           <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
     const marker = new window.google.maps.Marker({
