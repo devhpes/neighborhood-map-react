@@ -159,7 +159,9 @@ handlingSearchQuery = (query) => {
         if (hidden.id === marker.id ) {
           marker.setVisible(false);
         }
+        return hidden;
       })
+      return marker;
     });
   } else {
     this.setState({ venues: this.state.allVenues });
