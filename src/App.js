@@ -103,6 +103,18 @@ class App extends Component {
       this.state.markers.push(marker);
       this.venuesInfo.push({id: myVenue.venue.id, name:myVenue.venue.name, contents: contentString})
 
+      bounds.extend(marker.getPosition());
+      //Adding listener to the marker
+      this.map.fitBounds(bounds);
+      //Setting state of map, InfoWindow and Venues, So that can be used later
+      this.setState({
+        map: this.map,
+        InfoWindow: this.InfoWindow,
+        venues: this.venuesInfo,
+        allVenues: this.venuesInfo,// create venues copy to restore it after when user clear the input search
+        });
+
+    return myVenue.marker;
     });
 
   }
