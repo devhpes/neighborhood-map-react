@@ -29,7 +29,6 @@ class App extends Component {
       mapTypeControl: true
     });
 
-    
   }
 
 
@@ -39,7 +38,8 @@ class App extends Component {
   render() {
     return (
       <main id="App">
-      <div id="map"></div>
+      <div id="map" aria-label="Map" role="application" tabIndex="-1">
+      </div>
       </main>
     );
   }
