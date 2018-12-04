@@ -168,7 +168,7 @@ handlingSearchQuery = (query) => {
       <div className="heading">
       <h2>Food Places</h2>
       <div id="search">
-      <input type="text" placeholder="Search.." className="insideSearch" aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
+      <input type="text" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
       </div>
       {this.state.venues  && this.state.venues.map((venue, id) => ( 
@@ -189,7 +189,7 @@ handlingSearchQuery = (query) => {
 }
 
 
-// This function will generate script tag and will insert the google map API URL Dynamically.
+// This function will generate script tag and will insert the google map API URL Dynamically in the html.
 function loadMapUrl(){
   const scriptTag = window.document.createElement('script');
   const apiKey = 'AIzaSyASFSGSrxEXyjwZSqMyzRJBbfq_eFutui8';

@@ -1,5 +1,13 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Project deatails
+
+A single page apps created using React framework, which displays Google Map of 10 places using Foursquare API.
+
+# Online Demo 
+
+Visit Here For Online Demo - 
+
 ## Available Scripts
 
 In the project directory, you can run:
