@@ -17,6 +17,7 @@ class App extends Component {
       filterVenues: [],
       hideMarkers: [],
       query: '',
+      prevmarker: '',
     }
     //this.initMap = this.initMap.bind(this);
   }
@@ -141,6 +142,7 @@ class App extends Component {
   // Handling search, Whenever user type in the search box, the list according to the search input will be changed
 //and only the search venue and marker will be shown
 handlingSearchQuery = (query) => {
+  this.closeInfoWindow();
   this.setState({ query });
   let filterVenues;
   let hideMarkers;
@@ -163,7 +165,17 @@ handlingSearchQuery = (query) => {
     this.setState({ venues: this.state.allVenues });
   }
 }
-  
+ 
+closeInfoWindow = () => {
+  if (this.state.prevmarker) {
+      this.state.prevmarker.setAnimation(null);
+  }
+  this.setState({
+      'prevmarker': ''
+  });
+  this.state.InfoWindow.close();
+}
+
 
   render() {
     return (
