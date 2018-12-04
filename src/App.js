@@ -12,6 +12,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    this.getVenues();
     window.initMap = this.initMap;
     console.log("Component did mount");
   }
@@ -20,6 +21,30 @@ class App extends Component {
   Map(){
     loadMapUrl();
   }
+
+  //Fetching places inforamtion using Foursquare API
+  getVenues = () => {
+    const endPoint = "https://api.foursquare.com/v2/venues/explore?"
+    const credentials = {
+      client_id: "ZAM2ZVYH1W4E5KRSTWM140LP5UWX20J5XHK4NAUJLO5CJUNH",
+      client_secret: "CZTDHFFXI4SXYOXAN41MCUG2PPDEDIAATTCVRC1FUMGOSI1C",
+      query: "Food",
+      near: "New York", 
+      v: "20181107",
+      limit:10,
+    }
+    
+    //Promise based HTTP client for the browser
+    axios.get(endPoint + new URLSearchParams(credentials))
+    .then(response => {
+      this.setState({
+        venues: response.data.response.groups[0].items
+      }, this.Map() )//callback function
+    })
+    .catch(error =>{
+      alert('Error Occured While Fetching Foursquare API' + error);
+    });
+  }  
 
   initMap(){
     // Constructor creates a new map - only center and zoom are required.
