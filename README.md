@@ -6,7 +6,11 @@ A single page apps created using React framework, which displays Google Map of 1
 
 # Online Demo 
 
-Visit Here For Online Demo - 
+Visit Here For Online Demo - https://devhpes.github.io/neighborhood-map-react/
+
+## Dependencies
+
+escape-string-regexp
 
 ## Available Scripts
 
