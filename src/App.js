@@ -9,9 +9,12 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      venues : [],
-      markers : [],
+      venues: [],
+      markers: [],
+      map: [],
     }
+
+    //this.initMap = this.initMap.bind(this);
   }
 
   componentDidMount(){
@@ -20,8 +23,8 @@ class App extends Component {
     console.log("Component did mount");
   }
   
-  //Loaded the map 
-  Map(){
+  //Load the map script
+  Map = () => {
     loadMapUrl();
   }
 
@@ -49,7 +52,7 @@ class App extends Component {
     });
   }  
 
-  initMap(){
+  initMap = () => {
     // Constructor creates a new map - only center and zoom are required.
     this.map = new window.google.maps.Map(document.getElementById('map'), {
       center: {lat: 40.730610, lng: -73.935242},
@@ -70,10 +73,10 @@ class App extends Component {
     this.state.venues.map(myVenue => {
     //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
     const contentString = `<div><h3>${myVenue.venue.name.toUpperCase()}</h3>
-    <h5>Address: ${myVenue.venue.location.address}</h5>
-    <h5>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
-    <h5>Pincode: ${myVenue.venue.location.postalCode}</h5>
-    <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
+                          <h5>Address: ${myVenue.venue.location.address}</h5>
+                          <h5>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
+                          <h5>Pincode: ${myVenue.venue.location.postalCode}</h5>
+                          <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
     const marker = new window.google.maps.Marker({
       map: this.map,
@@ -107,7 +110,7 @@ class App extends Component {
       //Adding listener to the marker
       this.map.fitBounds(bounds);
       //Setting state of map, InfoWindow and Venues, So that can be used later
-      this.setState({
+      this.setState ({
         map: this.map,
         InfoWindow: this.InfoWindow,
         venues: this.venuesInfo,
