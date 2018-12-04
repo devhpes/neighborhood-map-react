@@ -131,6 +131,7 @@ class App extends Component {
       <main id="App">
       <div id="sideBar">
       <div className="heading">
+      <h2>Food Places</h2>
       <div className="search">
       <input type="text" placeholder="Search.."></input>
       </div>
