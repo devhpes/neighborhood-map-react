@@ -74,8 +74,8 @@ class App extends Component {
     //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
     const contentString = `<div><h2>${myVenue.venue.name.toUpperCase()}</h2>
                           <h3>Address: ${myVenue.venue.location.address}</h3>
-                          <h3>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
-                          <h3>Pincode: ${myVenue.venue.location.postalCode}</h5>
+                          <h3>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h3>
+                          <h3>Pincode: ${myVenue.venue.location.postalCode}</h3>
                           <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
     const marker = new window.google.maps.Marker({
@@ -168,7 +168,7 @@ handlingSearchQuery = (query) => {
       <div className="heading">
       <h2>Food Places</h2>
       <div id="search">
-      <input type="text" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
+      <input type="text" placeholder="Search.." className="insideSearch" aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
       </div>
       {this.state.venues  && this.state.venues.map((venue, id) => ( 
