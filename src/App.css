@@ -30,11 +30,11 @@ body {
   border: 3px solid rgb(31, 131, 134);
   border-radius: 5px;
   padding: 5px;
-  margin-bottom: 10px; 
+  font-size: 1.3em;
   text-align: center;
 }
 
-.search {
+#search {
   padding: 5px;
   width: 100%;
 

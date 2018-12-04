@@ -72,10 +72,10 @@ class App extends Component {
     //on the map
     this.state.venues.map(myVenue => {
     //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
-    const contentString = `<div><h3>${myVenue.venue.name.toUpperCase()}</h3>
-                          <h4>Address: ${myVenue.venue.location.address}</h5>
-                          <h4>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
-                          <h4>Pincode: ${myVenue.venue.location.postalCode}</h5>
+    const contentString = `<div><h2>${myVenue.venue.name.toUpperCase()}</h2>
+                          <h3>Address: ${myVenue.venue.location.address}</h3>
+                          <h3>Location: ${myVenue.venue.location.city}, ${myVenue.venue.location.state} </h5>
+                          <h3>Pincode: ${myVenue.venue.location.postalCode}</h5>
                           <p><strong> ${'<a href="https://foursquare.com/v/' + myVenue.venue.id + '" target="_blank">Click Here For More Info</a>'} </strong> </p></div>`
 
     const marker = new window.google.maps.Marker({
@@ -167,7 +167,7 @@ handlingSearchQuery = (query) => {
       <div id="sideBar">
       <div className="heading">
       <h2>Food Places</h2>
-      <div className="search">
+      <div id="search">
       <input type="text" placeholder="Search.." aria-labelledby="filter" value={this.state.query} onChange={(e) => {this.handlingSearchQuery(e.target.value)}}></input>
       </div>
       </div>
