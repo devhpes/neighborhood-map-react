@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = {
       venues : [],
+      markers : [],
     }
   }
 
@@ -87,7 +88,21 @@ class App extends Component {
         else{marker.setAnimation(window.google.maps.Animation.BOUNCE);}
         setTimeout(function(){ marker.setAnimation(null) }, 1000)
       });
-      
+
+      window.google.maps.event.addListener(marker, 'click', () => {
+        // Putting all the content on the map
+        this.InfoWindow.setContent(contentString)
+        //Centering the position of the map according to the marker
+        this.map.setCenter(marker.position);
+
+        this.InfoWindow.open(this.map, marker);
+      });
+
+      //Pushing markers to marker variable and pushing venues in the 
+      //venuesInfo variable 
+      this.state.markers.push(marker);
+      this.venuesInfo.push({id: myVenue.venue.id, name:myVenue.venue.name, contents: contentString})
+
     });
 
   }
