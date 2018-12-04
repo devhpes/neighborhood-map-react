@@ -64,6 +64,9 @@ class App extends Component {
     this.markers = [];
     this.venuesInfo = [];
 
+    //Mapping all the venues using map function to add content to all markers
+    //on the map
+    this.state.venues.map(myVenue => {
     //Content String Reference https://developers.google.com/maps/documentation/javascript/infowindows
     const contentString = `<div><h3>${myVenue.venue.name.toUpperCase()}</h3>
     <h5>Address: ${myVenue.venue.location.address}</h5>
@@ -78,6 +81,14 @@ class App extends Component {
       name: myVenue.venue.name,
       id: myVenue.venue.id,
       });
+
+      marker.addListener('click', () => {
+        if(marker.getAnimation() !== null){marker.setAnimation(null);}
+        else{marker.setAnimation(window.google.maps.Animation.BOUNCE);}
+        setTimeout(function(){ marker.setAnimation(null) }, 1000)
+      });
+      
+    });
 
   }
 
