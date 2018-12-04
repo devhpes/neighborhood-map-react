@@ -129,6 +129,13 @@ class App extends Component {
   render() {
     return (
       <main id="App">
+      <div id="sideBar">
+      <div className="heading">
+      <div className="search">
+      <input type="text" placeholder="Search.."></input>
+      </div>
+      </div>
+      </div>
       <div id="map" aria-label="Map" role="application" tabIndex="-1">
       </div>
       </main>
