@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React,{ Component } from 'react';
 //import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
@@ -16,8 +16,8 @@ class App extends Component {
       map: [],
       filterVenues: [],
       hideMarkers: [],
-      query: '',
-      prevmarker: '',
+      query: "",
+      prevmarker: "",
     }
     //this.initMap = this.initMap.bind(this);
   }
@@ -53,7 +53,7 @@ class App extends Component {
       }, this.Map() )//callback function
     })
     .catch(error =>{
-      alert('Error Occured While Fetching Foursquare API' + error);
+      alert("Error Occured While Fetching Foursquare API" + error);
     });
   }  
 
@@ -92,6 +92,7 @@ class App extends Component {
       });
 
       marker.addListener('click', () => {
+        //Adding animation to the markers. 
         if(marker.getAnimation() !== null){marker.setAnimation(null);}
         else{marker.setAnimation(window.google.maps.Animation.BOUNCE);}
         setTimeout(function(){ marker.setAnimation(null) }, 1000)
@@ -168,12 +169,13 @@ handlingSearchQuery = (query) => {
   }
 }
  
+//Closing InfoWindow function
 closeInfoWindow = () => {
   if (this.state.prevmarker) {
       this.state.prevmarker.setAnimation(null);
   }
   this.setState({
-      'prevmarker': ''
+      "prevmarker": ""
   });
   this.state.InfoWindow.close();
 }
@@ -207,7 +209,7 @@ closeInfoWindow = () => {
 }
 
 
-// This function will generate script tag and will insert the google map API URL Dynamically in the html.
+// This function will generate script a tag and will insert the google map API URL Dynamically in the HTML.
 function loadMapUrl(){
   const scriptTag = window.document.createElement('script');
   const apiKey = 'AIzaSyASFSGSrxEXyjwZSqMyzRJBbfq_eFutui8';
