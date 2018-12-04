@@ -122,9 +122,17 @@ class App extends Component {
 
   }
 
-
-
-
+  //Handling user clicks, Whenever user clicks on the sidebar li item, InfoWindow get opened
+  clickHandler = (venues) => {
+    this.state.markers.map(marker => {
+      // Comparing the marker id and venues id, If they are same, then only it will trigger the marker to open 
+      // whenever user clicks on the name of the venue in the sidebar
+      if (marker.id === venues.id) {
+        window.google.maps.event.trigger(marker, 'click');
+      }
+      return venues;
+    });
+  }
 
   render() {
     return (
@@ -136,6 +144,15 @@ class App extends Component {
       <input type="text" placeholder="Search.."></input>
       </div>
       </div>
+      {this.state.venues  && this.state.venues.map((venue, id) => ( 
+      <div key={id} id="venueList" >
+      <ul id="listItem" onClick={() => {this.clickHandler(venue)}}>
+      <li>
+      {venue.name}
+      </li>
+      </ul>
+      </div>
+      ))}
       </div>
       <div id="map" aria-label="Map" role="application" tabIndex="-1">
       </div>
